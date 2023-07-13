@@ -13,3 +13,70 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  display: block;
+}
+
+.container {
+  width: 1248px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.active {
+  color: #4440f6;
+  position: relative;
+}
+
+.active::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+
+  border-radius: 2px;
+  background-color: #4440f6;
+
+  animation-name: current-underline;
+  animation-duration: 150ms;
+  animation-timing-function: linear;
+}
+
+@keyframes current-underline {
+  0% {
+    transform: scaleX(0);
+  }
+  50% {
+    transform: scaleX(0.5);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
