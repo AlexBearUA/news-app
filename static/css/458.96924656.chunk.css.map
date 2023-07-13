@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/458.96924656.chunk.css","mappings":"AAAA,oBAGE,eADA,oBADA,iBAEA","sources":["pages/Read/Read.module.scss"],"sourcesContent":[".read {\n  text-align: center;\n  margin-bottom: 200px;\n  font-size: 45px;\n}\n"],"names":[],"sourceRoot":""}
