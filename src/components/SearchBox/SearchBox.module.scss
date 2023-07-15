@@ -4,55 +4,72 @@
   position: relative;
 }
 .inputSearch {
-  height: 50px;
-  width: 50px;
-  border-style: none;
-  padding: 10px;
+  height: 31px;
 
-  font-size: 18px;
-  letter-spacing: 2px;
+  @media screen and (max-width: 767px) {
+    width: 0px;
+    border: 1px solid transparent;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 213px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 288px;
+  }
+
+  padding: 5px 5px 5px 40px;
+  font-family: Manrope;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
   outline: none;
-  border-radius: 25px;
+  border: 1px solid #111321;
+  border-radius: 50px;
   transition: all 0.5s ease-in-out;
-  background-color: #22a6b3;
-  padding-right: 40px;
-  color: #fff;
+  color: #111321;
 }
 .inputSearch::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 18px;
-  letter-spacing: 2px;
-  font-weight: 100;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  text-align: left;
 }
 .btnSearch {
-  z-index: 5;
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   border-style: none;
-  font-size: 20px;
-  font-weight: bold;
   outline: none;
   cursor: pointer;
-  border-radius: 50%;
   position: absolute;
-  left: 0px;
-  color: #ffffff;
-  //   background-color: transparent;
+  left: 5px;
+  top: 5px;
+  background-color: transparent;
   pointer-events: painted;
+
+  &Icon {
+    width: 20px;
+    height: 20px;
+  }
 }
+
 .btnSearch:focus ~ .inputSearch {
-  width: 300px;
-  border-radius: 0px;
-  //   transform: translate(-250px);
-  //   background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+  @media screen and (max-width: 767px) {
+    width: 173px;
+    border-radius: 50px;
+    border: 1px solid #111321;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+  }
 }
 .inputSearch:focus {
-  width: 300px;
-  border-radius: 0px;
-  //   transform: translate(-250px);
-  //   background-color: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+  @media screen and (max-width: 767px) {
+    width: 173px;
+    border-radius: 50px;
+    border: 1px solid #111321;
+    transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
+  }
 }

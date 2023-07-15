@@ -45,12 +45,6 @@ a {
   display: block;
 }
 
-.container {
-  width: 1248px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
 .active {
   color: #4440f6;
   position: relative;

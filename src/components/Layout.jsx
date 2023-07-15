@@ -4,11 +4,11 @@ import { AppBar } from './AppBar/AppBar';
 
 export const Layout = () => {
   return (
-    <div className="container">
+    <>
       <AppBar />
       <Suspense fallback={'Loading...'}>
         <Outlet />
       </Suspense>
-    </div>
+    </>
   );
 };

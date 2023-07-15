@@ -1,0 +1,85 @@
+.themeSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 24px;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 147px;
+    gap: 12px;
+  }
+}
+
+.switcherCheckBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.themeSwitcherMode {
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0em;
+
+  @media screen and (max-width: 1277px) {
+    display: none;
+  }
+}
+
+.themeSwitcherIcon {
+  width: 20px;
+  height: 20px;
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.themeSwitcherInput[type='checkbox'] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.themeSwitcherLabel {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 40px;
+  height: 20px;
+  border: 1px solid #4b48db;
+  background-color: #fff;
+  display: block;
+  border-radius: 20px;
+  position: relative;
+}
+
+.themeSwitcherLabel:after {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 16px;
+  height: 16px;
+  background: #4b48db;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.themeSwitcherInput:checked + .themeSwitcherLabel {
+  background: #4b48db;
+  border: 1px solid #fff;
+}
+
+.themeSwitcherInput:checked + .themeSwitcherLabel:after {
+  left: calc(100% - 1px);
+  transform: translateX(-100%);
+  background: #fff;
+}
+
+.themeSwitcherLabel:active:after {
+  width: 26px;
+}
