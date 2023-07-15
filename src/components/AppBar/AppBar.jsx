@@ -1,18 +1,32 @@
+import { useState } from 'react';
+import { RxHamburgerMenu } from 'react-icons/rx';
 import { NavBar } from 'components/NavBar/NavBar';
 import { SearchBox } from 'components/SearchBox/SearchBox';
-import { RxHamburgerMenu } from 'react-icons/rx';
 import { ThemeSwitcher } from 'components/ThemeSwitcher/ThemeSwitcher';
+import { Modal } from 'components/Modal/Modal';
+import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
 import css from './AppBar.module.scss';
 
 export const AppBar = () => {
+  const [isModalOpen, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!isModalOpen);
+  };
+
   return (
     <div className={css.appBar}>
       <NavBar />
       <SearchBox />
-      <button className={css.mobileMenuBtn} type="button">
+      <button className={css.mobileMenuBtn} onClick={toggleModal} type="button">
         <RxHamburgerMenu className={css.mobileMenuIcon} />
       </button>
       <ThemeSwitcher />
+      {isModalOpen && (
+        <Modal onClose={toggleModal}>
+          <BurgerMenu onClose={toggleModal} />
+        </Modal>
+      )}
     </div>
   );
 };

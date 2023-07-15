@@ -21,8 +21,10 @@
   @media screen and (min-width: 768px) {
     display: none;
   }
-  width: 24px;
-  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   background-color: transparent;
   border: none;
   margin-left: 15px;
@@ -30,5 +32,19 @@
 
 .mobileMenuIcon {
   width: 24px;
-  height: 24px;
+  height: 22px;
+}
+
+.themeSwitcherDesktop {
+  background-color: black;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 147px;
+    gap: 12px;
+  }
+}
+
+.themeSwitcherMobile {
 }
