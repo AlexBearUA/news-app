@@ -78,3 +78,8 @@ a {
     transform: scaleX(1);
   }
 }
+
+.dark {
+  background-color: #2e2e2e;
+  color: #f4f4f4;
+}
