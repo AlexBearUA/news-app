@@ -13,6 +13,10 @@ export const CategoriesMenu = () => {
     query: '(max-width: 1279px)',
   });
 
+  const isMobile = useMediaQuery({
+    query: '(max-width: 767px)',
+  });
+
   useEffect(() => {
     newsApi
       .getNewsCategories()
@@ -58,7 +62,7 @@ export const CategoriesMenu = () => {
           active === 'others' && css.activeBtn
         }`}
         classNamePrefix="react-select"
-        placeholder="Others"
+        placeholder={isMobile ? 'Categories' : 'Others'}
         unstyled
       />
     </div>
