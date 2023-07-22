@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { createPortal } from 'react-dom';
+import { ThemeContext } from 'components/App';
 import css from './Modal.module.scss';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export const Modal = ({ onClose, children }) => {
+  const { theme } = useContext(ThemeContext);
+
   useEffect(() => {
     const handleEscKeyDown = e => {
       if (e.code === 'Escape') {
@@ -20,7 +23,12 @@ export const Modal = ({ onClose, children }) => {
   }, []);
 
   return createPortal(
-    <div className={css.ModalBackdrop}>
+    <div
+      className={css.ModalBackdrop}
+      style={{
+        backgroundColor: theme === 'dark' ? '#2E2E2E' : 'white',
+      }}
+    >
       <div className={css.ModalContent}>{children}</div>
     </div>,
     modalRoot

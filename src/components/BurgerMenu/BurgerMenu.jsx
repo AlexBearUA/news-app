@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useContext } from 'react';
+import { ThemeContext } from 'components/App';
 import { ThemeSwitcherMobile } from 'components/ThemeSwitcherMobile/ThemeSwitcherMobile';
 import { FiHome } from 'react-icons/fi';
 import { BsHeart } from 'react-icons/bs';
@@ -9,16 +11,30 @@ import { IoMdClose } from 'react-icons/io';
 import css from './BurgerMenu.module.scss';
 
 export const BurgerMenu = ({ onClose }) => {
+  const { theme } = useContext(ThemeContext);
+  const location = useLocation().pathname;
+
   return (
-    <div className={css.burgerMenuWrapper}>
+    <div className={`${css.burgerMenuWrapper} ${theme}`}>
       <Link onClick={onClose} className={css.logoMobile} to="/">
         News
       </Link>
       <button onClick={onClose} type="button" className={css.closeBtn}>
-        <IoMdClose className={css.closeBtnIcon} />
+        <IoMdClose
+          style={{ color: theme === 'dark' ? '#F4F4F4' : '#111321' }}
+          className={css.closeBtnIcon}
+        />
       </button>
       <nav className={css.navMobile}>
-        <Link onClick={onClose} className={css.navLinkMobile} to="/">
+        <Link
+          onClick={onClose}
+          className={css.navLinkMobile}
+          to="/"
+          style={{
+            backgroundColor: location === '/' && '#4440F6',
+            color: location === '/' && 'white',
+          }}
+        >
           <span className={css.iconBacground}>
             <FiHome className={css.navLinkMobileIcon} />
           </span>
@@ -26,7 +42,15 @@ export const BurgerMenu = ({ onClose }) => {
           <IoIosArrowForward className={css.arrowIcon} />
         </Link>
 
-        <Link onClick={onClose} className={css.navLinkMobile} to="favorite">
+        <Link
+          onClick={onClose}
+          className={css.navLinkMobile}
+          to="favorite"
+          style={{
+            backgroundColor: location === '/favorite' && '#4440F6',
+            color: location === '/favorite' && 'white',
+          }}
+        >
           <span className={css.iconBacground}>
             <BsHeart className={css.navLinkMobileIcon} />
           </span>
@@ -34,7 +58,15 @@ export const BurgerMenu = ({ onClose }) => {
           <IoIosArrowForward className={css.arrowIcon} />
         </Link>
 
-        <Link onClick={onClose} className={css.navLinkMobile} to="read">
+        <Link
+          onClick={onClose}
+          className={css.navLinkMobile}
+          to="read"
+          style={{
+            backgroundColor: location === '/read' && '#4440F6',
+            color: location === '/read' && 'white',
+          }}
+        >
           <span className={css.iconBacground}>
             <FiBookOpen className={css.navLinkMobileIcon} />
           </span>

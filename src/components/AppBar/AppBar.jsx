@@ -11,7 +11,6 @@ import { ThemeContext } from 'components/App';
 export const AppBar = () => {
   const [isModalOpen, setModal] = useState(false);
   const { theme } = useContext(ThemeContext);
-  // console.log(theme);
 
   const toggleModal = () => {
     setModal(!isModalOpen);
@@ -22,7 +21,12 @@ export const AppBar = () => {
       <NavBar />
       <SearchBox />
       <button className={css.mobileMenuBtn} onClick={toggleModal} type="button">
-        <RxHamburgerMenu className={css.mobileMenuIcon} />
+        <RxHamburgerMenu
+          style={{
+            color: theme === 'dark' ? 'white' : 'black',
+          }}
+          className={css.mobileMenuIcon}
+        />
       </button>
       <ThemeSwitcher />
       {isModalOpen && (

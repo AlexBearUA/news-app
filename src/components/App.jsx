@@ -9,8 +9,6 @@ const Read = lazy(() => import('../pages/Read/Read'));
 
 export const ThemeContext = createContext();
 
-console.log(ThemeContext);
-
 export const App = () => {
   const [theme, setTheme] = useState('light');
 
