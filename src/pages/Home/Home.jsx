@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import css from './Home.module.scss';
 import { CategoriesMenu } from 'components/CategoriesMenu/CategoriesMenu';
+import { NewsList } from 'components/NewsList/NewsList';
 import { ThemeContext } from 'components/App';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
   return (
     <div className={`${css.home} ${theme}`}>
       <CategoriesMenu />
+      <NewsList />
     </div>
   );
 };
