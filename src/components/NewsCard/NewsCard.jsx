@@ -1,4 +1,4 @@
-import css from './NewsCard.module.scss';
+// import css from './NewsCard.module.scss';
 
 export const NewsCard = ({ abstract, title, url, date, section, media }) => {
   const imgUrl = media[0]['media-metadata'][0].url;

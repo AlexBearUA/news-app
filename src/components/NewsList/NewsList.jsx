@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NewsCard } from 'components/NewsCard/NewsCard';
 import newsApi from '../../services/news-api';
-import css from './NewsList.module.scss';
+// import css from './NewsList.module.scss';
 
 export const NewsList = () => {
   const [fetchedNews, setFetchedNews] = useState([]);
