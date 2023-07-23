@@ -1,4 +1,6 @@
-// import css from './NewsCard.module.scss';
+import { BsHeart } from 'react-icons/bs';
+import { formatDate } from 'helpers/formatDate';
+import css from './NewsCard.module.scss';
 
 export const NewsCard = ({ abstract, title, url, date, section, media }) => {
   const imgUrl =
@@ -7,10 +9,20 @@ export const NewsCard = ({ abstract, title, url, date, section, media }) => {
       : 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg';
 
   return (
-    <div>
-      <img src={imgUrl} alt={title} />
-      <h2>{title}</h2>
-      <p>{abstract}</p>
+    <div className={css.newsCard}>
+      <img className={css.newsImg} src={imgUrl} alt={title} />
+      <p className={css.newsSection}>{section}</p>
+      <button type="button" className={css.favoriteBtn}>
+        Add to favorite <BsHeart className={css.newsIcon} />
+      </button>
+      <p className={css.newsTitle}>{title}</p>
+      <p className={css.newsAbstract}>{abstract}</p>
+      <div className={css.newsBottomWraper}>
+        <p className={css.newsDate}>{formatDate(date)}</p>
+        <a className={css.newsLink} href={url}>
+          Read more
+        </a>
+      </div>
     </div>
   );
 };

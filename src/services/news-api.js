@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { normalaziedNews } from './normalaziers';
+import { normalaziedNews } from '../helpers/normalaziers';
 
 const API_KEY = 'HuhT2LeoT7Ua2Tg2s6puWXB3yc9UXWQk';
 const BASE_URL = 'https://api.nytimes.com/svc/';

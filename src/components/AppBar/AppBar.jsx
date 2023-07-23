@@ -17,7 +17,7 @@ export const AppBar = () => {
   };
 
   return (
-    <div className={`${css.appBar} ${theme}`}>
+    <header className={`${css.appBar} ${theme}`}>
       <NavBar />
       <SearchBox />
       <button className={css.mobileMenuBtn} onClick={toggleModal} type="button">
@@ -34,6 +34,6 @@ export const AppBar = () => {
           <BurgerMenu onClose={toggleModal} />
         </Modal>
       )}
-    </div>
+    </header>
   );
 };

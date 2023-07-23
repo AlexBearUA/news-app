@@ -1,0 +1,123 @@
+.newsCard {
+  width: 395px;
+  height: 675px;
+  position: relative;
+  border: 1px solid rgba(244, 244, 244, 0.8);
+}
+.newsImg {
+  width: 395px;
+  height: 395px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.newsSection {
+  width: 112px;
+  height: 24px;
+  padding: 4px 8px;
+  position: absolute;
+  top: 40px;
+  border-radius: 0px, 4px, 4px, 0px;
+  background-color: rgba(68, 64, 246, 0.7);
+
+  font-family: Manrope;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: white;
+}
+
+.favoriteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  position: absolute;
+  right: 12px;
+  top: 355px;
+
+  padding: 6px 12px;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 20px;
+
+  font-family: Manrope;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0em;
+
+  &:hover {
+    background-color: #4b48db;
+    color: white;
+  }
+}
+
+.newsIcon {
+  color: #4440f6;
+}
+
+.favoriteBtn:hover .newsIcon {
+  color: white;
+}
+
+.newsTitle {
+  padding: 0 10px;
+  margin-bottom: 18px;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  height: 132px;
+  overflow: hidden;
+  font-family: Manrope;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 44px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.newsAbstract {
+  padding: 0 10px;
+  margin-bottom: 18px;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  height: 66px;
+  overflow: hidden;
+
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.newsBottomWraper {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.newsDate {
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: right;
+  color: #a8a8a8;
+}
+
+.newsLink {
+  font-family: Manrope;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #4440f6;
+}
