@@ -30,6 +30,10 @@ export const SearchBox = () => {
     query: '(max-width: 767px)',
   });
 
+  const isTabletOrDesktop = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
+
   return (
     <div className={css.searchBox}>
       <button type="button" onClick={setInputFocus} className={css.btnSearch}>
@@ -45,13 +49,17 @@ export const SearchBox = () => {
         value={searchQuery}
         ref={inputRef}
         type="text"
-        className={css.inputSearch}
+        className={`${css.inputSearch} ${
+          isTabletOrDesktop && themeIsDark && css.lightBorder
+        } ${themeIsDark ? css.lightBorderMobile : css.darkBorderMobile}`}
         placeholder="Search |"
         style={{
           width: searchQuery && isMobile && '173px',
           paddingLeft: searchQuery && isMobile && '35px',
           color: themeIsDark ? '#F4F4F4' : '#111321',
-          borderColor: themeIsDark ? 'white' : 'black',
+          borderColor:
+            (searchQuery && isMobile && themeIsDark && 'white') ||
+            (searchQuery && isMobile && !themeIsDark && 'black'),
         }}
       />
       {searchQuery && (

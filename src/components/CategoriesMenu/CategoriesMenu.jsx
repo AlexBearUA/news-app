@@ -8,6 +8,7 @@ export const CategoriesMenu = () => {
   const [categories, setCategories] = useState([]);
   const [active, setActive] = useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
+  const [selectIsOpen, setSelectIsOpen] = useState(false);
 
   const isTablet = useMediaQuery({
     query: '(max-width: 1279px)',
@@ -55,12 +56,14 @@ export const CategoriesMenu = () => {
         })}
       </ul>
       <Select
+        onMenuOpen={() => setSelectIsOpen(!selectIsOpen)}
+        onMenuClose={() => setSelectIsOpen(!selectIsOpen)}
         defaultValue={selectedOption}
         onChange={(setSelectedOption, () => setActive('others'))}
         options={getOptionsForSelect()}
         className={`react-select-container ${
           active === 'others' && css.activeBtn
-        }`}
+        } ${selectIsOpen && 'rotateArrow'}`}
         classNamePrefix="react-select"
         placeholder={isMobile ? 'Categories' : 'Others'}
         unstyled

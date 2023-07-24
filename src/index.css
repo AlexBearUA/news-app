@@ -111,7 +111,7 @@ a {
   padding: 0 24px;
 }
 
-.react-select-container:hover .react-select__indicators {
+.rotateArrow .react-select__indicators {
   transform: rotate(180deg);
 }
 

@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useContext } from 'react';
 import { ThemeContext } from 'components/App';
-import { ThemeSwitcherMobile } from 'components/ThemeSwitcherMobile/ThemeSwitcherMobile';
+import { ThemeSwitcher } from 'components/ThemeSwitcher/ThemeSwitcher';
 import { FiHome } from 'react-icons/fi';
 import { BsHeart } from 'react-icons/bs';
 import { FiBookOpen } from 'react-icons/fi';
@@ -74,7 +74,7 @@ export const BurgerMenu = ({ onClose }) => {
           <IoIosArrowForward className={css.arrowIcon} />
         </Link>
       </nav>
-      <ThemeSwitcherMobile />
+      <ThemeSwitcher />
     </div>
   );
 };

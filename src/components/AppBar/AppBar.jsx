@@ -1,4 +1,5 @@
 import { useState, useContext } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import { NavBar } from 'components/NavBar/NavBar';
 import { SearchBox } from 'components/SearchBox/SearchBox';
@@ -11,6 +12,9 @@ import { ThemeContext } from 'components/App';
 export const AppBar = () => {
   const [isModalOpen, setModal] = useState(false);
   const { theme } = useContext(ThemeContext);
+  const isTabletOrDesktop = useMediaQuery({
+    query: '(min-width: 768px)',
+  });
 
   const toggleModal = () => {
     setModal(!isModalOpen);
@@ -28,7 +32,8 @@ export const AppBar = () => {
           className={css.mobileMenuIcon}
         />
       </button>
-      <ThemeSwitcher />
+      {isTabletOrDesktop && <ThemeSwitcher />}
+
       {isModalOpen && (
         <Modal onClose={toggleModal}>
           <BurgerMenu onClose={toggleModal} />
