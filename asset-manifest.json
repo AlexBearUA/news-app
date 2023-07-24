@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/news-app/static/css/main.3d8514af.css",
-    "main.js": "/news-app/static/js/main.b3e4f4aa.js",
+    "main.css": "/news-app/static/css/main.ab5463f6.css",
+    "main.js": "/news-app/static/js/main.760535b0.js",
     "static/css/875.b91af1f7.chunk.css": "/news-app/static/css/875.b91af1f7.chunk.css",
-    "static/js/875.20ec09ef.chunk.js": "/news-app/static/js/875.20ec09ef.chunk.js",
+    "static/js/875.67d23e43.chunk.js": "/news-app/static/js/875.67d23e43.chunk.js",
     "static/css/74.22afc041.chunk.css": "/news-app/static/css/74.22afc041.chunk.css",
     "static/js/74.051fe43c.chunk.js": "/news-app/static/js/74.051fe43c.chunk.js",
     "static/css/458.96924656.chunk.css": "/news-app/static/css/458.96924656.chunk.css",
     "static/js/458.0b573856.chunk.js": "/news-app/static/js/458.0b573856.chunk.js",
     "static/js/186.0a1ae2f4.chunk.js": "/news-app/static/js/186.0a1ae2f4.chunk.js",
     "index.html": "/news-app/index.html",
-    "main.3d8514af.css.map": "/news-app/static/css/main.3d8514af.css.map",
-    "main.b3e4f4aa.js.map": "/news-app/static/js/main.b3e4f4aa.js.map",
+    "main.ab5463f6.css.map": "/news-app/static/css/main.ab5463f6.css.map",
+    "main.760535b0.js.map": "/news-app/static/js/main.760535b0.js.map",
     "875.b91af1f7.chunk.css.map": "/news-app/static/css/875.b91af1f7.chunk.css.map",
-    "875.20ec09ef.chunk.js.map": "/news-app/static/js/875.20ec09ef.chunk.js.map",
+    "875.67d23e43.chunk.js.map": "/news-app/static/js/875.67d23e43.chunk.js.map",
     "74.22afc041.chunk.css.map": "/news-app/static/css/74.22afc041.chunk.css.map",
     "74.051fe43c.chunk.js.map": "/news-app/static/js/74.051fe43c.chunk.js.map",
     "458.96924656.chunk.css.map": "/news-app/static/css/458.96924656.chunk.css.map",
@@ -21,7 +21,7 @@
     "186.0a1ae2f4.chunk.js.map": "/news-app/static/js/186.0a1ae2f4.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d8514af.css",
-    "static/js/main.b3e4f4aa.js"
+    "static/css/main.ab5463f6.css",
+    "static/js/main.760535b0.js"
   ]
 }
