@@ -19,7 +19,12 @@ export const NewsCard = ({ abstract, title, url, date, section, media }) => {
       <p className={css.newsAbstract}>{abstract}</p>
       <div className={css.newsBottomWraper}>
         <p className={css.newsDate}>{formatDate(date)}</p>
-        <a className={css.newsLink} href={url}>
+        <a
+          className={css.newsLink}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
+        >
           Read more
         </a>
       </div>
