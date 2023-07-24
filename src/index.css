@@ -107,6 +107,11 @@ a {
   }
 }
 
+.react-select-container.isActive {
+  background-color: #4b48db;
+  color: white;
+}
+
 .react-select__control {
   padding: 0 24px;
 }

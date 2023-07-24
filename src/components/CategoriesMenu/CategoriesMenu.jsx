@@ -62,7 +62,7 @@ export const CategoriesMenu = () => {
         onChange={(setSelectedOption, () => setActive('others'))}
         options={getOptionsForSelect()}
         className={`react-select-container ${
-          active === 'others' && css.activeBtn
+          active === 'others' && 'isActive'
         } ${selectIsOpen && 'rotateArrow'}`}
         classNamePrefix="react-select"
         placeholder={isMobile ? 'Categories' : 'Others'}
