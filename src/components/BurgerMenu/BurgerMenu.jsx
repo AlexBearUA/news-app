@@ -7,7 +7,7 @@ import { BsHeart } from 'react-icons/bs';
 import { FiBookOpen } from 'react-icons/fi';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoMdClose } from 'react-icons/io';
-
+import { DARK } from 'components/constants';
 import css from './BurgerMenu.module.scss';
 
 export const BurgerMenu = ({ onClose }) => {
@@ -21,7 +21,7 @@ export const BurgerMenu = ({ onClose }) => {
       </Link>
       <button onClick={onClose} type="button" className={css.closeBtn}>
         <IoMdClose
-          style={{ color: theme === 'dark' ? '#F4F4F4' : '#111321' }}
+          style={{ color: theme === DARK ? '#F4F4F4' : '#111321' }}
           className={css.closeBtnIcon}
         />
       </button>
@@ -32,7 +32,7 @@ export const BurgerMenu = ({ onClose }) => {
           to="/"
           style={{
             backgroundColor: location === '/' && '#4440F6',
-            color: location === '/' && 'white',
+            color: location === '/' && '#F4F4F4',
           }}
         >
           <span className={css.iconBacground}>
@@ -48,7 +48,7 @@ export const BurgerMenu = ({ onClose }) => {
           to="favorite"
           style={{
             backgroundColor: location === '/favorite' && '#4440F6',
-            color: location === '/favorite' && 'white',
+            color: location === '/favorite' && '#F4F4F4',
           }}
         >
           <span className={css.iconBacground}>
@@ -64,7 +64,7 @@ export const BurgerMenu = ({ onClose }) => {
           to="read"
           style={{
             backgroundColor: location === '/read' && '#4440F6',
-            color: location === '/read' && 'white',
+            color: location === '/read' && '#F4F4F4',
           }}
         >
           <span className={css.iconBacground}>

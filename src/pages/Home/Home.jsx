@@ -9,17 +9,28 @@ const Home = () => {
   const { theme } = useContext(ThemeContext);
 
   const [fetchedNews, setFetchedNews] = useState([]);
+  // const [newsByCategory, setNewsByCategory] = useState([]);
 
   useEffect(() => {
+    // newsApi
+    //   .getNewsByCategory('arts')
+    //   .then(news => setNewsByCategory(news))
+    //   .catch(error => console.log(error));
+
     newsApi
       .getMostPopularNews()
       .then(news => setFetchedNews(news))
       .catch(error => console.log(error));
   }, []);
 
+  // const setNewsByCategory = news => {
+  //   setNewsByCategory(news);
+  // };
+
+  // console.log(fetchedNews);
   return (
     <section className={`${css.home} ${theme}`}>
-      <CategoriesMenu />
+      <CategoriesMenu setNewsByCategory={setFetchedNews} />
       <NewsList news={fetchedNews} />
     </section>
   );

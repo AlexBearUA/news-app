@@ -6,8 +6,9 @@ import { SearchBox } from 'components/SearchBox/SearchBox';
 import { ThemeSwitcher } from 'components/ThemeSwitcher/ThemeSwitcher';
 import { Modal } from 'components/Modal/Modal';
 import { BurgerMenu } from 'components/BurgerMenu/BurgerMenu';
-import css from './AppBar.module.scss';
 import { ThemeContext } from 'components/App';
+import { DARK } from 'components/constants';
+import css from './AppBar.module.scss';
 
 export const AppBar = () => {
   const [isModalOpen, setModal] = useState(false);
@@ -27,7 +28,7 @@ export const AppBar = () => {
       <button className={css.mobileMenuBtn} onClick={toggleModal} type="button">
         <RxHamburgerMenu
           style={{
-            color: theme === 'dark' ? 'white' : 'black',
+            color: theme === DARK ? '#F4F4F4' : '#111321',
           }}
           className={css.mobileMenuIcon}
         />

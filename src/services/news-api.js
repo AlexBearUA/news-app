@@ -1,5 +1,8 @@
 import axios from 'axios';
-import { normalaziedNews } from '../helpers/normalaziers';
+import {
+  normalizePopularNews,
+  normalizeNewsByCategory,
+} from '../helpers/normalizers';
 
 const API_KEY = 'HuhT2LeoT7Ua2Tg2s6puWXB3yc9UXWQk';
 const BASE_URL = 'https://api.nytimes.com/svc/';
@@ -19,12 +22,26 @@ async function getMostPopularNews() {
   } = await axios.get(
     `${BASE_URL}mostpopular/v2/viewed/1.json?api-key=${API_KEY}`
   );
-  return normalaziedNews(results);
+  return normalizePopularNews(results);
 }
+
+async function getNewsByCategory(category) {
+  const {
+    data: { results },
+  } = await axios.get(
+    `${BASE_URL}news/v3/content/all/${encodeURIComponent(
+      category
+    )}.json?limit=20&offset=1&api-key=${API_KEY}`
+  );
+  return normalizeNewsByCategory(results);
+}
+
+// https://api.nytimes.com/svc/news/v3/content/all/arts.json?limit=500&offset=1&api-key=HuhT2LeoT7Ua2Tg2s6puWXB3yc9UXWQk
 
 const api = {
   getNewsCategories,
   getMostPopularNews,
+  getNewsByCategory,
 };
 
 export default api;

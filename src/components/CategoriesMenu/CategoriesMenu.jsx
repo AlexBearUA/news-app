@@ -4,10 +4,10 @@ import Select from 'react-select';
 import newsApi from '../../services/news-api';
 import css from './CategoriesMenu.module.scss';
 
-export const CategoriesMenu = () => {
-  const [categories, setCategories] = useState([]);
+export const CategoriesMenu = ({ setNewsByCategory }) => {
+  const [categoriesList, setCategoriesList] = useState([]);
   const [active, setActive] = useState(null);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState('');
   const [selectIsOpen, setSelectIsOpen] = useState(false);
 
   const isTablet = useMediaQuery({
@@ -21,16 +21,33 @@ export const CategoriesMenu = () => {
   useEffect(() => {
     newsApi
       .getNewsCategories()
-      .then(categories => setCategories(categories))
+      .then(categories => setCategoriesList(categories))
       .catch(error => console.log(error));
   }, []);
 
+  useEffect(() => {
+    if (active === 'others') {
+      return;
+    }
+    newsApi
+      .getNewsByCategory(active)
+      .then(news => setNewsByCategory(news))
+      .catch(error => console.log(error));
+  }, [active, setNewsByCategory]);
+
+  useEffect(() => {
+    newsApi
+      .getNewsByCategory(selectedOption.value)
+      .then(news => setNewsByCategory(news))
+      .catch(error => console.log(error));
+  }, [selectedOption, setNewsByCategory]);
+
   const getOptionsForSelect = () => {
     let result = [];
-    [...categories].splice(isTablet ? 4 : 6, 50).forEach(categorie => {
+    [...categoriesList].splice(isTablet ? 4 : 6, 50).forEach(categorie => {
       return result.push({
-        value: categorie.section,
         label: categorie.display_name,
+        value: categorie.section,
       });
     });
     return result;
@@ -39,27 +56,32 @@ export const CategoriesMenu = () => {
   return (
     <div className={css.CategoriesMenuWrapper}>
       <ul className={css.horizontalMenu}>
-        {[...categories].splice(0, isTablet ? 4 : 6).map(({ display_name }) => {
-          return (
-            <li key={display_name}>
-              <button
-                onClick={() => setActive(display_name)}
-                className={`${css.categoriesBtn} ${
-                  active === display_name && css.activeBtn
-                }`}
-                type="button"
-              >
-                {display_name}
-              </button>
-            </li>
-          );
-        })}
+        {[...categoriesList]
+          .splice(0, isTablet ? 4 : 6)
+          .map(({ display_name }) => {
+            return (
+              <li key={display_name}>
+                <button
+                  onClick={() => setActive(display_name)}
+                  className={`${css.categoriesBtn} ${
+                    active === display_name && css.activeBtn
+                  }`}
+                  type="button"
+                >
+                  {display_name}
+                </button>
+              </li>
+            );
+          })}
       </ul>
       <Select
-        onMenuOpen={() => setSelectIsOpen(!selectIsOpen)}
+        onMenuOpen={() => {
+          setSelectIsOpen(!selectIsOpen);
+          setActive('others');
+        }}
         onMenuClose={() => setSelectIsOpen(!selectIsOpen)}
         defaultValue={selectedOption}
-        onChange={(setSelectedOption, () => setActive('others'))}
+        onChange={setSelectedOption}
         options={getOptionsForSelect()}
         className={`react-select-container ${
           active === 'others' && 'isActive'

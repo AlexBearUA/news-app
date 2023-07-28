@@ -1,6 +1,7 @@
 import { useEffect, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'components/App';
+import { DARK } from 'components/constants';
 import css from './Modal.module.scss';
 
 const modalRoot = document.querySelector('#modal-root');
@@ -26,7 +27,7 @@ export const Modal = ({ onClose, children }) => {
     <div
       className={css.ModalBackdrop}
       style={{
-        backgroundColor: theme === 'dark' ? '#2E2E2E' : 'white',
+        backgroundColor: theme === DARK ? '#2E2E2E' : '#F4F4F4',
       }}
     >
       <div className={css.ModalContent}>{children}</div>

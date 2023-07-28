@@ -40,7 +40,7 @@ export const SearchBox = () => {
         <FiSearch
           className={css.btnSearchIcon}
           style={{
-            color: themeIsDark ? 'white' : 'black',
+            color: themeIsDark ? '#F4F4F4' : '#111321',
           }}
         />
       </button>
@@ -58,8 +58,8 @@ export const SearchBox = () => {
           paddingLeft: searchQuery && isMobile && '35px',
           color: themeIsDark ? '#F4F4F4' : '#111321',
           borderColor:
-            (searchQuery && isMobile && themeIsDark && 'white') ||
-            (searchQuery && isMobile && !themeIsDark && 'black'),
+            (searchQuery && isMobile && themeIsDark && '#F4F4F4') ||
+            (searchQuery && isMobile && !themeIsDark && '#111321'),
         }}
       />
       {searchQuery && (
@@ -70,7 +70,7 @@ export const SearchBox = () => {
         >
           <FiX
             style={{
-              color: themeIsDark ? 'white' : 'black',
+              color: themeIsDark ? '#F4F4F4' : '#111321',
             }}
             className={css.cleanBtnIcon}
           />
