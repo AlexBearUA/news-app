@@ -1,7 +1,7 @@
 import { useContext, useRef, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { FiSearch, FiX } from 'react-icons/fi';
-import { ThemeContext } from 'components/App';
+import { ThemeContext, NewsQueryContext } from 'components/App';
 import { DARK } from 'components/constants';
 import css from './SearchBox.module.scss';
 
@@ -9,6 +9,8 @@ export const SearchBox = () => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const { theme } = useContext(ThemeContext);
+
+  const { setNewshQuery } = useContext(NewsQueryContext);
 
   const inputRef = useRef(null);
 
@@ -34,13 +36,28 @@ export const SearchBox = () => {
     query: '(min-width: 768px)',
   });
 
+  const onFormSubmit = e => {
+    e.preventDefault();
+    setNewshQuery(searchQuery);
+    setSearchQuery('');
+  };
+
   return (
-    <div className={css.searchBox}>
-      <button type="button" onClick={setInputFocus} className={css.btnSearch}>
+    <form onSubmit={onFormSubmit} className={css.searchBox}>
+      <button
+        type="submit"
+        onClick={setInputFocus}
+        className={css.btnSearch}
+        disabled={!searchQuery}
+      >
         <FiSearch
           className={css.btnSearchIcon}
           style={{
-            color: themeIsDark ? '#F4F4F4' : '#111321',
+            color:
+              (!searchQuery && themeIsDark && '#F4F4F4') ||
+              (searchQuery && themeIsDark && 'blue') ||
+              (!searchQuery && !themeIsDark && '#111321') ||
+              (searchQuery && !themeIsDark && 'blue'),
           }}
         />
       </button>
@@ -76,6 +93,6 @@ export const SearchBox = () => {
           />
         </button>
       )}
-    </div>
+    </form>
   );
 };

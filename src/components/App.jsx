@@ -9,11 +9,14 @@ const Favorite = lazy(() => import('../pages/Favorite/Favorite'));
 const Read = lazy(() => import('../pages/Read/Read'));
 
 export const ThemeContext = createContext();
+export const NewsQueryContext = createContext();
 
 export const App = () => {
   const [theme, setTheme] = useState(
     () => JSON.parse(window.localStorage.getItem('news-theme')) ?? LIGHT
   );
+
+  const [newsQuery, setNewshQuery] = useState('');
 
   useEffect(() => {
     window.localStorage.setItem('news-theme', JSON.stringify(theme));
@@ -21,14 +24,16 @@ export const App = () => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/favorite" element={<Favorite />} />
-          <Route path="/read" element={<Read />} />
-        </Route>
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+      <NewsQueryContext.Provider value={{ newsQuery, setNewshQuery }}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/favorite" element={<Favorite />} />
+            <Route path="/read" element={<Read />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </NewsQueryContext.Provider>
     </ThemeContext.Provider>
   );
 };

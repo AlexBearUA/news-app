@@ -36,8 +36,6 @@ async function getNewsByCategory(category) {
   return normalizeNewsByCategory(results);
 }
 
-// https://api.nytimes.com/svc/news/v3/content/all/arts.json?limit=500&offset=1&api-key=HuhT2LeoT7Ua2Tg2s6puWXB3yc9UXWQk
-
 const api = {
   getNewsCategories,
   getMostPopularNews,
@@ -45,3 +43,5 @@ const api = {
 };
 
 export default api;
+
+// https://api.nytimes.com/svc/search/v2/articlesearch.json?q='ukraine'&api-key=HuhT2LeoT7Ua2Tg2s6puWXB3yc9UXWQk
