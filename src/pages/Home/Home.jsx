@@ -9,28 +9,41 @@ const Home = () => {
   const { theme } = useContext(ThemeContext);
 
   const [fetchedNews, setFetchedNews] = useState([]);
-  // const [newsByCategory, setNewsByCategory] = useState([]);
+
+  const [categoriesList, setCategoriesList] = useState([]);
+
+  const [newsCategory, setNewsCategory] = useState('');
 
   useEffect(() => {
-    // newsApi
-    //   .getNewsByCategory('arts')
-    //   .then(news => setNewsByCategory(news))
-    //   .catch(error => console.log(error));
-
     newsApi
       .getMostPopularNews()
       .then(news => setFetchedNews(news))
       .catch(error => console.log(error));
   }, []);
 
-  // const setNewsByCategory = news => {
-  //   setNewsByCategory(news);
-  // };
+  useEffect(() => {
+    newsApi
+      .getNewsCategories()
+      .then(categories => setCategoriesList(categories))
+      .catch(error => console.log(error));
+  }, []);
 
-  // console.log(fetchedNews);
+  useEffect(() => {
+    if (!newsCategory || newsCategory === 'others') {
+      return;
+    }
+    newsApi
+      .getNewsByCategory(newsCategory)
+      .then(news => setFetchedNews(news))
+      .catch(error => console.log(error));
+  }, [newsCategory]);
+
   return (
     <section className={`${css.home} ${theme}`}>
-      <CategoriesMenu setNewsByCategory={setFetchedNews} />
+      <CategoriesMenu
+        categoriesList={categoriesList}
+        setNewsCategory={setNewsCategory}
+      />
       <NewsList news={fetchedNews} />
     </section>
   );

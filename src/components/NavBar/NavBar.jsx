@@ -7,13 +7,13 @@ export const NavBar = () => {
       <Link className={css.logo} to="/">
         News
       </Link>
-      <NavLink className={css.navItem} to="/">
+      <NavLink className={css.navLink} to="/">
         Home
       </NavLink>
-      <NavLink className={css.navItem} to="favorite">
+      <NavLink className={css.navLink} to="favorite">
         Favorite
       </NavLink>
-      <NavLink className={css.navItem} to="read">
+      <NavLink className={css.navLink} to="read">
         Read
       </NavLink>
     </nav>

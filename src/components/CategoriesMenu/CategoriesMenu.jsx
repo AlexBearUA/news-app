@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import Select from 'react-select';
-import newsApi from '../../services/news-api';
 import css from './CategoriesMenu.module.scss';
 
-export const CategoriesMenu = ({ setNewsByCategory }) => {
-  const [categoriesList, setCategoriesList] = useState([]);
+export const CategoriesMenu = ({ categoriesList, setNewsCategory }) => {
   const [active, setActive] = useState(null);
+
   const [selectedOption, setSelectedOption] = useState('');
+
   const [selectIsOpen, setSelectIsOpen] = useState(false);
 
   const isTablet = useMediaQuery({
@@ -19,28 +19,8 @@ export const CategoriesMenu = ({ setNewsByCategory }) => {
   });
 
   useEffect(() => {
-    newsApi
-      .getNewsCategories()
-      .then(categories => setCategoriesList(categories))
-      .catch(error => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    if (active === 'others') {
-      return;
-    }
-    newsApi
-      .getNewsByCategory(active)
-      .then(news => setNewsByCategory(news))
-      .catch(error => console.log(error));
-  }, [active, setNewsByCategory]);
-
-  useEffect(() => {
-    newsApi
-      .getNewsByCategory(selectedOption.value)
-      .then(news => setNewsByCategory(news))
-      .catch(error => console.log(error));
-  }, [selectedOption, setNewsByCategory]);
+    setNewsCategory(selectedOption.value);
+  }, [selectedOption, setNewsCategory]);
 
   const getOptionsForSelect = () => {
     let result = [];
@@ -62,7 +42,10 @@ export const CategoriesMenu = ({ setNewsByCategory }) => {
             return (
               <li key={display_name}>
                 <button
-                  onClick={() => setActive(display_name)}
+                  onClick={() => {
+                    setActive(display_name);
+                    setNewsCategory(display_name);
+                  }}
                   className={`${css.categoriesBtn} ${
                     active === display_name && css.activeBtn
                   }`}
@@ -78,6 +61,7 @@ export const CategoriesMenu = ({ setNewsByCategory }) => {
         onMenuOpen={() => {
           setSelectIsOpen(!selectIsOpen);
           setActive('others');
+          setNewsCategory('others');
         }}
         onMenuClose={() => setSelectIsOpen(!selectIsOpen)}
         defaultValue={selectedOption}
