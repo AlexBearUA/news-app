@@ -16,6 +16,8 @@ const Home = () => {
 
   const [newsCategory, setNewsCategory] = useState('');
 
+  console.log(newsQuery);
+
   useEffect(() => {
     newsApi
       .getMostPopularNews()
